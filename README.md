@@ -4,6 +4,80 @@ A LiveData for monitoring Android battery.
 
 **DO NOT USE THIS LIBRARY IN PRODUCTION UNTIL V1.0.0 IS RELEASED.**
 
+# Download
+
+Coming soon...
+
+# Getting started
+
+In your Activity/Fragment/Service, create and observe a BatteryLiveData.
+
+```java
+liveBattery = new BatteryLiveData(this);
+liveBattery.observe(this, new Observer<BatteryInfo>() {
+    @Override
+    public void onChanged(BatteryInfo info) {
+        Log.d("BatteryInfo", "BatteryInfo=" + info);
+    }
+});
+```
+
+## in Kotlin
+
+```kotlin
+liveBattery = BatteryLiveData(this)
+liveBattery.observe(this, Observer {
+    println(it)
+})
+```
+
+# BatteryInfo
+
+BatteryInfo is a LiveData, it has following properties:
+
+```java
+/**
+ * The current battery status.
+ */
+private int status;
+
+/**
+ * The current battery health.
+ */
+private int health;
+
+/**
+ * The current battery plugged mode.
+ */
+private int plugged;
+
+/**
+ * The current battery level.
+ */
+private int level;
+
+/**
+ * The maximum battery level.
+ */
+private int scale;
+
+/**
+ * The current battery temperature.
+ */
+private int temperature;
+
+/**
+ * The current battery voltage.
+ */
+private int voltage;
+```
+
+Get the remaining battery percent using `BatteryInfo#getPercent()` method.
+
+# Inspired by
+
+[RxBattery](https://github.com/pwittchen/RxBattery)
+
 # License
 
 ```
