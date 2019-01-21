@@ -12,6 +12,8 @@ Coming soon...
 
 In your Activity/Fragment/Service, create and observe a BatteryLiveData.
 
+## in Java
+
 ```java
 liveBattery = new BatteryLiveData(this);
 liveBattery.observe(this, new Observer<BatteryInfo>() {
@@ -33,42 +35,28 @@ liveBattery.observe(this, Observer {
 
 # BatteryInfo
 
-BatteryInfo is a LiveData, it has following properties:
+BatteryInfo is the data in a BatteryLiveData, it has following properties:
 
 ```java
-/**
- * The current battery status.
- */
+// The current battery status.
 private int status;
 
-/**
- * The current battery health.
- */
+// The current battery health.
 private int health;
 
-/**
- * The current battery plugged mode.
- */
+// The current battery plugged mode.
 private int plugged;
 
-/**
- * The current battery level.
- */
+// The current battery level.
 private int level;
 
-/**
- * The maximum battery level.
- */
+// The maximum battery level.
 private int scale;
 
-/**
- * The current battery temperature.
- */
+// The current battery temperature.
 private int temperature;
 
-/**
- * The current battery voltage.
- */
+// The current battery voltage.
 private int voltage;
 ```
 
