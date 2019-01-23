@@ -28,7 +28,7 @@ public class BatteryLiveData extends LiveData<BatteryInfo> {
     /**
      * The battery broadcast receiver.
      */
-    private BroadcastReceiver batteryReceiver = new BatteryReceiver();
+    private BroadcastReceiver batteryReceiver;
 
     /**
      * The application context.
@@ -45,6 +45,13 @@ public class BatteryLiveData extends LiveData<BatteryInfo> {
     @Override
     protected void onActive() {
         super.onActive();
+        registerBatteryReceiver();
+    }
+
+    private void registerBatteryReceiver() {
+        if (batteryReceiver == null) {
+            batteryReceiver = new BatteryReceiver();
+        }
         IntentFilter intentFilter = new IntentFilter(ACTION_BATTERY_CHANGED);
         context.registerReceiver(batteryReceiver, intentFilter);
     }
