@@ -6,8 +6,8 @@ buildscript {
     def deps = [:]
     ext.deps = deps
 
-    deps.libVersionCode = 1
-    deps.libVersionName = "0.1.0"
+    deps.libVersionCode = 2
+    deps.libVersionName = "1.0.0"
     deps.demoVersionCode = 1
     deps.demoVersionName = "0.1.0"
     deps.compileSdk = 28

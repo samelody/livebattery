@@ -7,15 +7,13 @@
 
 A LiveData for monitoring Android battery.
 
-**DO NOT USE THIS LIBRARY IN PRODUCTION UNTIL V1.0.0 IS RELEASED.**
-
 # Installation
 
 Add the following dependency to your `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation 'com.samelody.livebattery:livebattery:0.1.0'
+    implementation 'com.samelody.livebattery:livebattery:1.0.0'
 }
 ```
 

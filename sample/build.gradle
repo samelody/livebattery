@@ -24,7 +24,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation deps.kotlin_stdlib
     implementation project(':library')
-//    implementation "com.samelody.livebattery:livebattery:0.1.0"
+//    implementation "com.samelody.livebattery:livebattery:1.0.0"
     implementation deps.appcompat
     implementation deps.constraintlayout
 
