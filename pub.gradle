@@ -1,0 +1,99 @@
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+group = pub.groupId
+version = pub.version
+archivesBaseName = pub.artifactId
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging pub.packaging
+                groupId pub.groupId
+                artifactId pub.artifactId
+                version pub.version
+
+                // Add your description here
+                name pub.name
+                description pub.description
+                url pub.url
+
+                // Set your license
+                licenses {
+                    license {
+                        name pub.licenseName
+                        url pub.licenseUrl
+                    }
+                }
+                developers {
+                    developer {
+                        id pub.developerId
+                        name pub.developerName
+                        email pub.developerEmail
+                    }
+                }
+                scm {
+                    connection pub.gitUrl
+                    developerConnection pub.gitUrl
+                    url pub.url
+                }
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    baseName = pub.artifactId
+    classifier = "sources"
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    description pub.name + " Javadoc"
+    source = android.libraryVariants["release"].javaCompile.source
+    ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+    classpath = files(android.libraryVariants["release"].javaCompile.classpath.files) + files(ext.androidJar)
+    options.links("http://docs.oracle.com/javase/7/docs/api/")
+    options.links("http://d.android.com/reference/")
+    exclude '**/BuildConfig.java'
+    exclude '**/R.java'
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = "javadoc"
+    baseName = pub.artifactId
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+// Bintray
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        repo = pub.repo
+        name = pub.artifactId
+        desc = pub.description
+        websiteUrl = pub.url
+        vcsUrl = pub.gitUrl
+        issueTrackerUrl = pub.issueUrl
+        licenses = pub.licenses
+        publish = true
+        publicDownloadNumbers = true
+        version {
+            desc = pub.description
+        }
+    }
+}

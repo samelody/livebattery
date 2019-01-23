@@ -21,10 +21,32 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation deps.appcompat
+    implementation deps.livedata
 
     testImplementation deps.junit
 
     androidTestImplementation deps.test
     androidTestImplementation deps.espresso
 }
+
+ext.pub = [:]
+
+pub.groupId = 'com.samelody.livebattery'
+pub.artifactId = 'livebattery'
+pub.name = 'LiveBattery'
+pub.description = 'A LiveData for monitoring Android battery.'
+pub.repo = 'maven'
+pub.version = deps.libVersionName
+pub.versionCode = deps.libVersionCode
+pub.packaging = 'aar'
+pub.url = 'https://github.com/samelody/livebattery'
+pub.gitUrl = 'https://github.com/samelody/livebattery.git'
+pub.issueUrl = 'https://github.com/samelody/livebattery/issues'
+pub.developerId = 'belinwu'
+pub.developerName = 'Belin Wu'
+pub.developerEmail = 'belinwu@qq.com'
+pub.licenseName = 'Apache License 2.0'
+pub.licenseUrl = 'https://raw.githubusercontent.com/samelody/livebattery/master/LICENSE'
+pub.licenses = ["Apache-2.0"]
+
+apply from: "../pub.gradle"
