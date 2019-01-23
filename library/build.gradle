@@ -29,24 +29,24 @@ dependencies {
     androidTestImplementation deps.espresso
 }
 
-ext.pub = [:]
+ext.pubspec = [:]
 
-pub.groupId = 'com.samelody.livebattery'
-pub.artifactId = 'livebattery'
-pub.name = 'LiveBattery'
-pub.description = 'A LiveData for monitoring Android battery.'
-pub.repo = 'maven'
-pub.version = deps.libVersionName
-pub.versionCode = deps.libVersionCode
-pub.packaging = 'aar'
-pub.url = 'https://github.com/samelody/livebattery'
-pub.gitUrl = 'https://github.com/samelody/livebattery.git'
-pub.issueUrl = 'https://github.com/samelody/livebattery/issues'
-pub.developerId = 'belinwu'
-pub.developerName = 'Belin Wu'
-pub.developerEmail = 'belinwu@qq.com'
-pub.licenseName = 'Apache License 2.0'
-pub.licenseUrl = 'https://raw.githubusercontent.com/samelody/livebattery/master/LICENSE'
-pub.licenses = ["Apache-2.0"]
+pubspec.groupId = 'com.samelody.livebattery'
+pubspec.artifactId = 'livebattery'
+pubspec.name = 'LiveBattery'
+pubspec.description = 'A LiveData for monitoring Android battery.'
+pubspec.repo = 'maven'
+pubspec.version = deps.libVersionName
+pubspec.versionCode = deps.libVersionCode
+pubspec.packaging = 'aar'
+pubspec.url = 'https://github.com/samelody/livebattery'
+pubspec.gitUrl = 'https://github.com/samelody/livebattery.git'
+pubspec.issueUrl = 'https://github.com/samelody/livebattery/issues'
+pubspec.developerId = 'belinwu'
+pubspec.developerName = 'Belin Wu'
+pubspec.developerEmail = 'belinwu@qq.com'
+pubspec.licenseName = 'Apache License 2.0'
+pubspec.licenseUrl = 'https://raw.githubusercontent.com/samelody/livebattery/master/LICENSE'
+pubspec.licenses = ["Apache-2.0"]
 
-apply from: "../pub.gradle"
+apply from: "https://raw.githubusercontent.com/samelody/pubman/master/pub.gradle"
