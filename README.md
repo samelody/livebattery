@@ -1,18 +1,29 @@
 # LiveBattery
 
+![Android](https://img.shields.io/badge/platform-Android-brightgreen.svg)
+![Apache](https://img.shields.io/github/license/samelody/livebattery.svg)
+![API](https://img.shields.io/badge/API-15%2B-brightgreen.svg)
+[![Bintray](https://api.bintray.com/packages/belinwu/maven/livebattery/images/download.svg)](https://bintray.com/belinwu/maven/livebattery/_latestVersion)
+
 A LiveData for monitoring Android battery.
 
 **DO NOT USE THIS LIBRARY IN PRODUCTION UNTIL V1.0.0 IS RELEASED.**
 
-# Download
+# Installation
 
-Coming soon...
+Add the following dependency to your `build.gradle` file:
 
-# Getting started
+```groovy
+dependencies {
+    implementation 'com.samelody.livebattery:livebattery:0.1.0'
+}
+```
+
+# Usage
 
 In your Activity/Fragment/Service, create and observe a BatteryLiveData.
 
-## in Java
+## Java
 
 ```java
 liveBattery = new BatteryLiveData(this);
@@ -24,7 +35,7 @@ liveBattery.observe(this, new Observer<BatteryInfo>() {
 });
 ```
 
-## in Kotlin
+## Kotlin
 
 ```kotlin
 liveBattery = BatteryLiveData(this)
@@ -33,7 +44,9 @@ liveBattery.observe(this, Observer {
 })
 ```
 
-# BatteryInfo
+# Docs
+
+## BatteryInfo
 
 BatteryInfo is the data in a BatteryLiveData, it has following properties:
 
@@ -62,7 +75,11 @@ private int voltage;
 
 Get the remaining battery percent using `BatteryInfo#getPercent()` method.
 
-# Inspired by
+# Dependencies
+
+`androidx.lifecycle:lifecycle-livedata-core:2.0.0`
+
+# Thanks
 
 [RxBattery](https://github.com/pwittchen/RxBattery)
 

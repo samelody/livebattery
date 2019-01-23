@@ -4,6 +4,7 @@ import android.os.*
 import androidx.appcompat.app.*
 import androidx.lifecycle.*
 import com.samelody.livebattery.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         liveBattery = BatteryLiveData(this)
         liveBattery.observe(this, Observer {
-            println(it)
+            info.text = it.toString()
         })
     }
 }
